@@ -1,1 +1,6 @@
 <h1> All Barbers</h1>
+<ul> 
+<%@barbers.each do |barber|%>
+<li style="font-size: 150% "> <%=barber.name%> </li>
+<%end%>
+</ul>
