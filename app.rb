@@ -6,6 +6,10 @@ require 'sinatra/activerecord'
 
 set :database, {adapter: "sqlite3", database: "barbershop.db"}
 
+before do
+@barbers = Barber.all
+end
+
 class Client < ActiveRecord::Base
 end
 
@@ -15,4 +19,8 @@ end
 get '/' do
 	@barbers = Barber.all
 	erb :index
+end
+
+get '/visit' do
+	erb :visit
 end
