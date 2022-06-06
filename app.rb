@@ -44,6 +44,6 @@ post '/visit' do
 	@color = params['colorpicker']
 	client = Client.new(:name => @name, :phone => @phone, :datestamp => @time,
 											:barber => @barber, :color => @color)
-	client.save
-	erb :visit
+	client.save ? "<h2>Вы записались</h2> " : "<h2>Ошибка, вы пропустили одно из полей</h2>"
+			
 end
