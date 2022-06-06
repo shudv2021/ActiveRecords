@@ -1,0 +1,28 @@
+<h1> Список клиентов</h1>
+
+ <table class="table"> 
+ <caption>Clients from list</caption>
+ <thead> 
+      <tr> 
+        <th>Number</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Visit time</th> 
+        <th>Barber</th>
+        <th>Color</th>  
+      </tr>
+  </thead>
+  <tbody> 
+    <%@clients.each do |client|%>
+    <tr> 
+      <th scope="row">client.id</th> 
+      <td><%=client.name%></td>
+      <td><%=client.phone%></td> 
+      <td><%=client.datestamp%> </td>
+      <td><%=client.barber%></td> 
+      <td style='background:<%=client.color %>'></td>
+    </tr> 
+    <%end%>
+  </tbody>
+
+</table> 

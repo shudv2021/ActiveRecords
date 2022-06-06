@@ -7,6 +7,7 @@ require 'sinatra/activerecord'
 set :database, {adapter: "sqlite3", database: "barbershop.db"}
 
 before do
+@clients = Client.all
 @barbers = Barber.all
 end
 
@@ -21,6 +22,10 @@ get '/' do
 	erb :index
 end
 
+get '/clients' do 
+	erb :clients
+end
+
 get '/visit' do
 	erb :visit
 end
@@ -32,5 +37,8 @@ post '/visit' do
 	@time = params['time']
 	@barber = params['barber']
 	@color = params['colorpicker']
+	client = Client.new(:name => @name, :phone => @phone, :datestamp => @time,
+											:barber => @barber, :color => @color)
+	client.save
 	erb :visit
 end
