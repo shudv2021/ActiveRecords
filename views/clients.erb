@@ -15,7 +15,7 @@
   <tbody> 
     <%@clients.each do |client|%>
     <tr> 
-      <th scope="row">client.id</th> 
+      <th scope="row"><%=client.id%></th> 
       <td><%=client.name%></td>
       <td><%=client.phone%></td> 
       <td><%=client.datestamp%> </td>
