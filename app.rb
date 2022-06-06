@@ -24,3 +24,13 @@ end
 get '/visit' do
 	erb :visit
 end
+
+post '/visit' do
+	
+	@name = params['username']
+	@phone = params['phone']
+	@time = params['time']
+	@barber = params['barber']
+	@color = params['colorpicker']
+	erb :visit
+end

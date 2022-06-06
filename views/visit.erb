@@ -21,7 +21,7 @@
     
     <select name="barber" class="form-control" id="visit_form_barber">
       <%@barbers.each do |barber|%>
-      <option <%= barber.name == barber[0] ? 'selected' : ''%> ><%=barber.name%></option>
+      <option <%= barber.name == @barber ? 'selected' : ''%> ><%=barber.name%></option>
       <%end%>
     </select>
     
@@ -49,8 +49,15 @@
   <button type="submit" class="btn btn-primary">Записаться</button>
 </form>
 
+<p> <%= @name%> </p>
+<p> <%= @phone%> </p>
+<p> <%= @time%> </p>
+<p> <%= @barber%> </p>
+<p> <%= @color%> </p>
 
-
- <script type="text/javascript">
- $('select[name="colorpicker"]').simplecolorpicker();
-  </script>
+<script type="text/javascript">
+  $('select[name="colorpicker"]').simplecolorpicker();
+  $('#visit_form_time').datetimepicker();
+</script>
+  
+  
