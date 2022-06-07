@@ -37,13 +37,10 @@ end
 
 post '/visit' do
 	
-	@name = params['username']
-	@phone = params['phone']
-	@time = params['time']
-	@barber = params['barber']
-	@color = params['colorpicker']
-	client = Client.new(:name => @name, :phone => @phone, :datestamp => @time,
-											:barber => @barber, :color => @color)
+	client = Client.new params[:client]
+	# client = Client.new(:name => @name, :phone => @phone, :datestamp => @time,
+	# 										:barber => @barber, :color => @color)
+	
 	client.save ? "<h2>Вы записались</h2> " : "<h2>Ошибка, вы пропустили одно из полей</h2>"
 			
 end
